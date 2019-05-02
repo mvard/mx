@@ -9950,6 +9950,8 @@ def get_arch():
         except OSError:
             # sysctl is not available
             pass
+    if machine in ['riscv64']:
+        return 'riscv64';
     abort('unknown or unsupported architecture: os=' + get_os() + ', machine=' + machine)
 
 mx_subst.results_substitutions.register_no_arg('arch', get_arch)
